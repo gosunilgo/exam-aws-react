@@ -1,0 +1,16 @@
+ 
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+test_audit:
+  script:
+    - npm audit
+
+test_db:
+  script:
+    - npm install
+    - node ./specs/start.js ./specs/db-postgres.spec.js
